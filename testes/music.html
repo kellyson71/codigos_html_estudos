@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎵 Música do Momento 🎵</title>
+    <title>Chainsaw music</title>
+
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -69,6 +70,17 @@
             margin-top: 20px;
         }
 
+        #playPauseButton {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        #playPauseButton img {
+            width: 50px; /* Ajuste conforme necessário */
+        }
+
         audio {
             width: 100%;
             margin-top: 20px;
@@ -80,13 +92,22 @@
             font-size: 0.8em;
         }
 
+        .gif-container {
+            margin-top: 50px;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        header, .music-container, .custom-audio-player {
+        header, .music-container, .custom-audio-player, .gif-container {
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -104,24 +125,24 @@
 <body>
 
     <header>
-        <h1>🎶 Música do Momento 🎶</h1>
-        <p>O maior sucesso musical que você nunca ouviu!</p>
+        <h1>Chainsaw music</h1>
+        <p>RAAAANNNDANDANDAN</p>
     </header>
 
     <div class="music-container">
-        <h2>🚀 "Som do Universo" 🚀</h2>
-        <p class="music-description">Uma obra-prima intergaláctica para os seus ouvidos!</p>
+        <h2>⛓️ "Som de cerra" ⛓️</h2>
+        <p class="music-description">Uma obra de art</p>
 
         <div class="custom-audio-player">
             <div class="audio-controls">
                 <span id="currentTime">0:00</span>
-                <button id="rewindButton">⏮️</button>
-                <button id="playPauseButton">▶️</button>
-                <button id="forwardButton">⏭️</button>
+                <button id="rewindButton">voltar🪚</button>
+                <button id="playPauseButton"><img src="/assets/baixados.jpeg" alt="Play"></button>
+                <button id="forwardButton">🪚avançar</button>
                 <span id="duration">3:45</span>
             </div>
             <audio id="myAudio" controls>
-                <source src="/testes/KICK BACK pero es versión SALSA (Full)_5mfDzBeeBSI.mp3" type="audio/mp3">
+                <source src="/assets/KICK BACK pero es versión SALSA (Full)_5mfDzBeeBSI.mp3" type="audio/mp3">
                 Seu navegador não suporta a tag de áudio.
             </audio>
         </div>
@@ -130,6 +151,11 @@
     <footer>
         <p>&copy; 2024 Música do Momento. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Adicione o seu GIF aqui -->
+    <div class="gif-container">
+        <img src="/assets/icegif-781.gif" alt="kkk">
+    </div>
 
     <script>
         const audio = document.getElementById('myAudio');
@@ -142,10 +168,10 @@
         playPauseButton.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                playPauseButton.textContent = '⏸️';
+                playPauseButton.innerHTML = '<img src="/assets/baixados (1).jpeg" alt="Pause">';
             } else {
                 audio.pause();
-                playPauseButton.textContent = '▶️';
+                playPauseButton.innerHTML = '<img src="/assets/baixados.jpeg" alt="Play">';
             }
         });
 
