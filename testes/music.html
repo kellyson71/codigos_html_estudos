@@ -7,32 +7,47 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #1a1a1a;
             text-align: center;
-            margin: 50px;
+            margin: 0;
+            padding: 0;
+            color: #fff;
         }
 
         header {
             background-color: #333;
             color: white;
-            padding: 10px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
             margin-bottom: 20px;
+            position: relative;
         }
 
         h1 {
-            margin-bottom: 0;
+            margin: 0;
+            font-size: 2em;
         }
 
         p {
-            color: #777;
+            font-size: 1.2em;
         }
 
         .music-container {
-            background-color: #fff;
+            background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        p.music-description {
+            font-size: 1.2em;
+            margin-bottom: 20px;
         }
 
         audio {
@@ -43,6 +58,27 @@
         footer {
             margin-top: 50px;
             color: #777;
+            font-size: 0.8em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header, .music-container {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Glow effect */
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; }
+            50% { text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; }
+        }
+
+        h1, h2 {
+            animation: glow 2s infinite alternate;
         }
     </style>
 </head>
@@ -50,15 +86,15 @@
 
     <header>
         <h1>🎶 Música do Momento 🎶</h1>
-        <p>O maior sucesso musical que você nunca ouviu!</p>
+        <p>MUSICAAA</p>
     </header>
 
     <div class="music-container">
         <h2>🚀 "Som do Universo" 🚀</h2>
-        <p>Uma obra-prima intergaláctica para os seus ouvidos!</p>
+        <p class="music-description">Uma obra-prima intergaláctica para os seus ouvidos!</p>
 
         <audio controls>
-            <source src="caminho/para/sua/musica.mp3" type="audio/mp3">
+            <source src="/testes/KICK BACK pero es versión SALSA (Full)_5mfDzBeeBSI.mp3" type="audio/mp3">
             Seu navegador não suporta a tag de áudio.
         </audio>
     </div>
