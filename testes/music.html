@@ -50,6 +50,25 @@
             margin-bottom: 20px;
         }
 
+        /* Esconde o player original */
+        audio {
+            display: none;
+        }
+
+        .custom-audio-player {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .audio-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin-top: 20px;
+        }
+
         audio {
             width: 100%;
             margin-top: 20px;
@@ -67,7 +86,7 @@
             to { opacity: 1; }
         }
 
-        header, .music-container {
+        header, .music-container, .custom-audio-player {
             animation: fadeIn 1s ease-in-out;
         }
 
@@ -86,22 +105,70 @@
 
     <header>
         <h1>🎶 Música do Momento 🎶</h1>
-        <p>MUSICAAA</p>
+        <p>O maior sucesso musical que você nunca ouviu!</p>
     </header>
 
     <div class="music-container">
         <h2>🚀 "Som do Universo" 🚀</h2>
         <p class="music-description">Uma obra-prima intergaláctica para os seus ouvidos!</p>
 
-        <audio controls>
-            <source src="/testes/KICK BACK pero es versión SALSA (Full)_5mfDzBeeBSI.mp3" type="audio/mp3">
-            Seu navegador não suporta a tag de áudio.
-        </audio>
+        <div class="custom-audio-player">
+            <div class="audio-controls">
+                <span id="currentTime">0:00</span>
+                <button id="rewindButton">⏮️</button>
+                <button id="playPauseButton">▶️</button>
+                <button id="forwardButton">⏭️</button>
+                <span id="duration">3:45</span>
+            </div>
+            <audio id="myAudio" controls>
+                <source src="/testes/KICK BACK pero es versión SALSA (Full)_5mfDzBeeBSI.mp3" type="audio/mp3">
+                Seu navegador não suporta a tag de áudio.
+            </audio>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Música do Momento. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const audio = document.getElementById('myAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        const rewindButton = document.getElementById('rewindButton');
+        const forwardButton = document.getElementById('forwardButton');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const durationDisplay = document.getElementById('duration');
+
+        playPauseButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.textContent = '⏸️';
+            } else {
+                audio.pause();
+                playPauseButton.textContent = '▶️';
+            }
+        });
+
+        rewindButton.addEventListener('click', () => {
+            audio.currentTime -= 5;
+        });
+
+        forwardButton.addEventListener('click', () => {
+            audio.currentTime += 5;
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const minutes = Math.floor(audio.currentTime / 60);
+            const seconds = Math.floor(audio.currentTime % 60);
+            currentTimeDisplay.textContent = `${minutes}:${seconds}`;
+        });
+
+        audio.addEventListener('durationchange', () => {
+            const minutes = Math.floor(audio.duration / 60);
+            const seconds = Math.floor(audio.duration % 60);
+            durationDisplay.textContent = `${minutes}:${seconds}`;
+        });
+    </script>
 
 </body>
 </html>
