@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-d2z7ffyOkDGIiG4rHTlhG5VyrSaik9td1OV9uQUVp1e8UVuvbOYAqEIvZK51Rssgg/AfgXhNT3hMJ0RgZoRcSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .view-selector {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .view-option {
+            margin-right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            padding: 5px;
+            border: 1px solid #3498db; /* Cor azul para manter a clareza */
+            border-radius: 5px;
+            background-color: #fff; /* Fundo branco para maior contraste */
+            z-index: 1; /* Para garantir que o texto fique acima da imagem */
+        }
+
+        .view-option img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            opacity: 0.7; /* Diminui a opacidade da imagem */
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .view-option:hover img {
+            opacity: 1; /* Volta à opacidade total no hover */
+        }
+
+        .view-option:hover {
+            color: #3498db;
+        }
+
+        .grid-container, .list-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 20px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out;
+            border: 1px solid #fff; /* Contorno branco */
+            border-radius: 5px;
+            color: #fff; /* Texto branco */
+            z-index: 0; /* Para garantir que a imagem fique abaixo do texto */
+        }
+
+        .square:hover {
+            transform: scale(1.1);
+        }
+
+        .list-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .item {
+            width: calc(33.33% - 20px);
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            border: 1px solid #fff; /* Contorno branco */
+            border-radius: 5px;
+        }
+
+        .item:hover {
+            background-color: #2978a0;
+            color: #fff;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .logo-img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .github-link:hover .logo-img {
+            transform: scale(1.2); /* Aumenta a escala ao passar o mouse */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="view-selector">
+    <div class="view-option" onclick="changeView('grid')">
+        <img id="grid-icon" src="/assets/grade.png" alt="Grade"> Grade
+    </div>
+    <div class="view-option" onclick="changeView('list')">
+        <img id="list-icon" src="/assets/cardapio.png" alt="Lista"> Lista
+    </div>
+</div>
+
+<div id="content" class="grid-container">
+    <div class="square" onclick="redirect('pagina1.html')">Nome 1</div>
+    <div class="square" onclick="redirect('pagina2.html')">Nome 2</div>
+    <div class="square" onclick="redirect('pagina3.html')">Nome 3</div>
+</div>
+
+<script>
+    function changeView(view) {
+        var contentContainer = document.getElementById('content');
+        var gridIcon = document.getElementById('grid-icon');
+        var listIcon = document.getElementById('list-icon');
+
+        if (view === 'list') {
+            contentContainer.style.opacity = '0'; // Fade-out
+            setTimeout(function() {
+                contentContainer.innerHTML = '<div class="list-container"><div class="item" onclick="redirect(\'pagina1.html\')">Nome 1</div><div class="item" onclick="redirect(\'pagina2.html\')">Nome 2</div><div class="item" onclick="redirect(\'pagina3.html\')">Nome 3</div></div>';
+                listIcon.style.display = 'inline'; // Exibe a imagem de lista
+                gridIcon.style.display = 'none'; // Esconde a imagem de grade
+                contentContainer.style.opacity = '1'; // Fade-in
+            }, 500); // Tempo de espera para a transição
+        } else {
+            contentContainer.style.opacity = '0'; // Fade-out
+            setTimeout(function() {
+                contentContainer.innerHTML = '<div class="grid-container"><div class="square" onclick="redirect(\'pagina1.html\')">Nome 1</div><div class="square" onclick="redirect(\'pagina2.html\')">Nome 2</div><div class="square" onclick="redirect(\'pagina3.html\')">Nome 3</div></div>';
+                listIcon.style.display = 'none'; // Esconde a imagem de lista
+                gridIcon.style.display = 'inline'; // Exibe a imagem de grade
+                contentContainer.style.opacity = '1'; // Fade-in
+            }, 500); // Tempo de espera para a transição
+        }
+    }
+
+    function redirect(page) {
+        window.location.href = page;
+    }
+</script>
+
+</body>
+</html>

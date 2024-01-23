@@ -6,6 +6,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <linK rel="stylesheet" href="estilo1.css">
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            .navbar {
+                background-color: #333;
+                padding: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000; 
+            }
+    
+            .logo {
+                color: white;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+    
+            .nav-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+    
+            .nav-item {
+                margin-right: 20px;
+            }
+    
+            .nav-item a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+    
+            .nav-item a:hover {
+                color: #ff9900;
+            }
+    
+            .content {
+                margin-top: 80px;
+                padding: 20px;
+            }
+            .logo {
+                position: relative;
+                display: inline-block;
+                transition: transform 0.3s ease-in-out;
+            }
+    
+            .logo:hover {
+                transform: scale(1.1);
+            }
+    
+            .navbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+            }
+    
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+    
+            .logo a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+            }
+    
+            .logo img {
+                height: 50px;
+                margin-right: 10px; 
+            }
+    
+            .nav-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+    
+            .nav-item {
+                margin-right: 15px; 
+            }
+            .logo span {
+                color: #ffffff;
+            }
+            .content-container {
+                margin-top: 80px;
+                padding: 20px;
+            }
+    
+          
+            body {
+                margin-top: 80px;
+            }
+        </style>
+    </head>
+    <body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="https://github.com/kellyson71">
+                <img src="/assets/symbole-github-violet.png" height="50px" alt="Logo" class="">
+                <span>kellyson71</span>
+            </a>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="">Pagina inicial</a></li>
+            <li class="nav-item"><a href="https://estagiopaudosferros.com/site">Projeto principal</a></li>
+        </ul>
+    </nav>
 </head>
 <body>
     <header>
@@ -38,8 +160,8 @@
             <h2>Encontre as melhores indicações de livros</h2>
             <div class="content">
                 <article class="livro">
-                    <a href="/detalhes.html">
-                        <img src="img/sr.aneis.webp">
+                    <a href="./html2.html">
+                        <img src="img/912muBc3EzL._AC_UF1000,1000_QL80_.jpg">
                     </a>
                 </article>
                 <article class="livro">
@@ -163,7 +285,7 @@
                 </article>
                 <article class="livro">
                     <a>
-                        <img src="img/912muBc3EzL._AC_UF1000,1000_QL80_.jpg">
+                        <img src="img/sr.aneis.webp">
                     </a>
                 </article>
                 <article class="livro">

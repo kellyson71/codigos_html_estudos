@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-d2z7ffyOkDGIiG4rHTlhG5VyrSaik9td1OV9uQUVp1e8UVuvbOYAqEIvZK51Rssgg/AfgXhNT3hMJ0RgZoRcSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .view-selector {
+            margin-bottom: 20px;
+        }
+
+        .view-option {
+            margin-right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .view-option img {
+            width: 30px;
+            height: 30px;
+            margin-bottom: -5px; /* Ajuste para melhorar a estética */
+            margin-right: 5px;
+        }
+
+        .view-option:hover {
+            color: #3498db;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 20px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .square:hover {
+            transform: scale(1.1);
+        }
+
+        .list-container {
+            text-align: left;
+        }
+
+        .item {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .item:hover {
+            background-color: #2978a0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="view-selector">
+    <div class="view-option" onclick="changeView('grid')">
+        <img src="https://example.com/grid-icon.png" alt="Grade"> Grade
+    </div>
+    <div class="view-option" onclick="changeView('list')">
+        <img src="https://example.com/list-icon.png" alt="Lista"> Lista
+    </div>
+</div>
+
+<div id="content" class="grid-container">
+    <div class="square" onclick="redirect('pagina1.html')">Nome 1</div>
+    <div class="square" onclick="redirect('pagina2.html')">Nome 2</div>
+    <div class="square" onclick="redirect('pagina3.html')">Nome 3</div>
+</div>
+
+<script>
+    function changeView(view) {
+        var contentContainer = document.getElementById('content');
+
+        if (view === 'list') {
+            contentContainer.innerHTML = '<div class="list-container"><div class="item" onclick="redirect(\'pagina1.html\')">Item 1</div><div class="item" onclick="redirect(\'pagina2.html\')">Item 2</div><div class="item" onclick="redirect(\'pagina3.html\')">Item 3</div></div>';
+        } else {
+            contentContainer.innerHTML = '<div class="grid-container"><div class="square" onclick="redirect(\'pagina1.html\')">Nome 1</div><div class="square" onclick="redirect(\'pagina2.html\')">Nome 2</div><div class="square" onclick="redirect(\'pagina3.html\')">Nome 3</div></div>';
+        }
+    }
+
+    function redirect(page) {
+        window.location.href = page;
+    }
+</script>
+
+</body>
+</html>

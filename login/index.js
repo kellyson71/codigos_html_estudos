@@ -7,10 +7,10 @@ function validateLogin() {
         // Redirect to another page
         window.location.href = "another_page.html";
     } else {
-        alert("Invalid email or password. Please try again.");
+        alert("ainda vou fazer a pagina de cadastro");
     }
 }
 
 function forgotPassword() {
-    alert("Manda mensagem no zap!"); // Display a message when "Esqueci minha senha" is clicked
+    alert("como vc esqueceu a senha? nem conta vc tem"); // Display a message when "Esqueci minha senha" is clicked
 }
