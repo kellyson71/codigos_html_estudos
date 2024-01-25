@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.options button {
+    margin: 10px;
+    padding: 20px;
+    font-size: 24px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.options button:hover {
+    background-color: #2980b9;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.spotify-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+iframe {
+    border-radius: 8px;
+}
+
+.listen-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
